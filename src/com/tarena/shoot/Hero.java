@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 
 /**
- * Ó¢ÐÛ»ú
+ * Ó¢ï¿½Û»ï¿½
  * 
  * @author Administrator
  * 
@@ -42,11 +42,11 @@ public class Hero extends FlyingObject {
 		this.doubleFire = doubleFire;
 	}
 
-	public void addLife() { // ÔöÃü
+	public void addLife() { // ï¿½ï¿½ï¿½ï¿½
 		life++;
 	}
 
-	public void subtractLife() { // ¼õÃü
+	public void subtractLife() { // ï¿½ï¿½ï¿½ï¿½
 		life--;
 	}
 
@@ -55,7 +55,7 @@ public class Hero extends FlyingObject {
 	}
 
 	/**
-	 * µ±Ç°ÎïÌåÒÆ¶¯ÁËÒ»ÏÂ£¬Ïà¶Ô¾àÀë£¬ x,yÊó±êÎ»ÖÃ
+	 * ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½Ò»ï¿½Â£ï¿½ï¿½ï¿½Ô¾ï¿½ï¿½ë£¬ x,yï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	 */
 	public void moveTo(int x, int y) {
 		this.x = x - width / 2;
@@ -68,18 +68,19 @@ public class Hero extends FlyingObject {
 				|| y > ShootGame.HEIGHT - height;
 	}
 
-	public Bullet[] shoot() { // ·¢Éä×Óµ¯
-		int xStep = width / 4; // ×Óµ¯²½·ÖÎª·É»ú¿í¶È4°ë
+	public Bullet[] shoot() { // ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½
+		int xStep = width / 4; // ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½É»ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½
 		int yStep = 20;
 		if (doubleFire>0) {
-			Bullet[] bullets = new Bullet[2];
+			Bullet[] bullets = new Bullet[3];
 			bullets[0] = new Bullet(x + xStep, y - yStep);
-			bullets[1] = new Bullet(x + 3 * xStep, y - yStep);
+			bullets[1] = new Bullet(x + 2 * xStep, y - yStep);
+			bullets[2] = new Bullet(x + 3 * xStep, y - yStep);
 			doubleFire -= 2;
 			return bullets;
-		} else { // µ¥±¶
+		} else { // ï¿½ï¿½ï¿½ï¿½
 			Bullet[] bullets = new Bullet[1];
-			bullets[0] = new Bullet(x + 2 * xStep, y - yStep); // y-yStep(×Óµ¯¾à·É»úµÄÎ»ÖÃ)
+			bullets[0] = new Bullet(x + 2 * xStep, y - yStep); // y-yStep(ï¿½Óµï¿½ï¿½ï¿½É»ï¿½ï¿½ï¿½Î»ï¿½ï¿½)
 			return bullets;
 		}
 	}
@@ -91,7 +92,7 @@ public class Hero extends FlyingObject {
 		}
 	}
 
-	public boolean hit(FlyingObject other) { // Åö×²Ëã·¨
+	public boolean hit(FlyingObject other) { // ï¿½ï¿½×²ï¿½ã·¨
 
 		int x1 = other.x - this.width / 2;
 		int x2 = other.x + other.width + this.width / 2;
